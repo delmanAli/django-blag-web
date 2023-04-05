@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+My Blog 
+{% endblock %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'blog/post.css' %}">
+<link rel="stylesheet" href="{% static 'blog/index.css' %}">
+{% endblock %}
+
+{% block content %}
+<section id="welcome">
+    <header>
+        <img src="{% static 'blog/images/max.png' %}" alt="delman - auther of posts">
+        <h2>DELMAN'S BLOG</h2>
+    </header>
+    <p>
+        Welcome to my blog. I'm a software developer and this is my blog. I write about web
+        development, programming, and Flutter topics.
+    </p>
+</section>
+<section id="latest-posts">
+    <h2>
+        My Latest Thoughts
+    </h2>
+    <ul>
+        {% for post in posts %}
+            {% include 'blog/includes/post.html' %}
+        {% endfor %}
+    </ul>
+</section>
+<section id="about">
+    <h2>
+        what i do
+    </h2>
+    <p>
+        I Love to code and i love to share my knowledge with others. I'm enjoy exploring
+        new technologies and learning new things.
+    </p>
+    <p>
+        My goal is to keep on growing as developer and to help others do the same -
+        and if I could make a living doing that, that would be great.
+    </p>
+</section>
+{% endblock %}
